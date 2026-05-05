@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Booking History</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo">🌙 Moonlight <span>Stay</span></div>
+  <div>
+    <a href="index.html">🏠 Home</a>
+    <a href="room.html">🏨 Rooms</a>
+  </div>
+</header>
+
+<h2>Booking History</h2>
+
+<div style="text-align:center; margin:20px;">
+  <input type="text" id="searchId" placeholder="Enter Booking ID">
+  <button id="searchButton" onclick="searchBooking()">Search</button>
+</div>
+
+<div id="searchResult" class="container"></div>
+
+<div id="historyList" class="container"></div>
+
+<script src="history.js"></script>
+</body>
+</html>

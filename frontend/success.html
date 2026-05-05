@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Booking Successful</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="receipt-container">
+  <h2>🌙 Moonlight Stay</h2>
+  <h3>Booking Confirmed ✅</h3>
+
+  <div id="receiptData"></div>
+
+  <button onclick="window.print()">🖨️ Print Receipt</button>
+  <a href="room.html"><button>Back to Rooms</button></a>
+</div>
+
+<script>
+  const data = JSON.parse(localStorage.getItem("bookingData"));
+  const container = document.getElementById("receiptData");
+
+  if (!data) {
+    container.innerHTML = "<p>No booking data found</p>";
+  } else {
+    container.innerHTML = `
+      <p><b>Booking ID:</b> ${data.bookingId}</p>
+      <hr>
+
+      <p><b>Name:</b> ${data.name}</p>
+      <p><b>Address:</b> ${data.address}</p>
+      <p><b>Age:</b> ${data.age}</p>
+      <p><b>Room:</b> ${data.room}</p>
+      <p><b>Check-in:</b> ${data.check_in}</p>
+      <p><b>Check-out:</b> ${data.check_out}</p>
+      <p><b>Booking Date:</b> ${data.booking_date}</p>
+      <p><b>Total Paid:</b> ₹${data.price}</p>
+    `;
+  }
+</script>
+
+</body>
+</html>

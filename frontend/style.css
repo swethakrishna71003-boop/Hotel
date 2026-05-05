@@ -1,0 +1,548 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #0b0b0b;
+  color: white;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #000;
+  padding: 15px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: gold;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  transition: 0.3s;
+  font-size: 15px;
+}
+
+.navbar a:hover {
+  color: gold;
+}
+
+/* HEADING */
+h2 {
+  text-align: center;
+  margin: 30px 0;
+}
+
+/* CONTAINER */
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+/* CARD */
+.card {
+  background: #141414;
+  border-radius: 15px;
+  overflow: hidden;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+/* IMAGE */
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+
+/* CONTENT */
+.card h3 {
+  margin: 10px 15px;
+  font-size: 20px;
+}
+
+.card p {
+  margin: 5px 15px;
+  color: #ccc;
+}
+
+/* STATUS */
+.status {
+  margin: 10px 15px;
+  font-weight: bold;
+}
+
+.available {
+  color: #00ff99;
+}
+
+.booked {
+  color: #ff4d4d;
+}
+
+/* BUTTONS (CARD ONLY) */
+.card button {
+  width: 90%;
+  margin: 10px auto;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card button:first-of-type {
+  background: gold;
+  color: black;
+}
+
+.card button:first-of-type:hover {
+  background: #ffd700;
+  transform: scale(1.03);
+}
+
+.card button:last-of-type {
+  background: #333;
+  color: white;
+}
+
+.card button:last-of-type:hover {
+  background: #555;
+}
+
+/* HERO SECTION */
+.hero {
+  position: relative;
+  height: 92vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  z-index: -2;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.hero h1 {
+  font-size: 52px;
+  margin-bottom: 10px;
+  animation: fadeUp 1s ease;
+}
+
+.hero p {
+  font-size: 20px;
+  color: #ddd;
+  margin-bottom: 25px;
+  animation: fadeUp 1.3s ease;
+}
+
+.hero button {
+  padding: 14px 30px;
+  font-size: 16px;
+  background: gold;
+  color: black;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+  animation: fadeUp 1.6s ease;
+}
+
+.hero button:hover {
+  background: #ffd700;
+  transform: scale(1.08);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+}
+
+/* ANIMATION */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   BOOKING MODAL
+========================= */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.modal-content {
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 12px;
+  width: 320px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: gold;
+  border-radius: 10px;
+}
+
+.modal-content h3 {
+  margin-bottom: 15px;
+}
+
+.modal-content label {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: none;
+}
+
+.modal-content button {
+  width: 100%;
+  margin-top: 12px;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-content button:first-of-type {
+  background: gold;
+  color: black;
+}
+
+.modal-content button:last-of-type {
+  background: #444;
+  color: white;
+}
+
+/* HISTORY */
+#historyList .card {
+  padding: 15px;
+}
+
+/* RECEIPT */
+.receipt-container {
+  max-width: 400px;
+  margin: 60px auto;
+  background: #141414;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.receipt-container h2 {
+  color: gold;
+}
+
+.receipt-container p {
+  text-align: left;
+  margin: 8px 0;
+}
+
+.receipt-container button {
+  margin-top: 15px;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.receipt-container button:first-of-type {
+  background: gold;
+  color: black;
+}
+
+.receipt-container button:last-of-type {
+  background: #444;
+  color: white;
+}
+
+.receipt-container hr {
+  margin: 10px 0;
+  border: 1px solid #333;
+}
+
+/* SEARCH */
+#searchId {
+  padding: 12px;
+  width: 260px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: #1e1e1e;
+  color: white;
+  outline: none;
+}
+
+#searchId:focus {
+  border-color: gold;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+}
+
+/* IMAGE PREVIEW (ONLY ONE VERSION) */
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.95);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  cursor: pointer;
+}
+
+.image-modal img {
+  max-width: 95%;
+  max-height: 95%;
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.3);
+}
+
+/* =========================
+   BOOKING HISTORY (UPGRADED UI)
+========================= */
+
+#historyList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* HISTORY CARD */
+#historyList .card {
+  background: linear-gradient(145deg, #141414, #1c1c1c);
+  border: 1px solid #2a2a2a;
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* HOVER EFFECT */
+#historyList .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(255, 215, 0, 0.15);
+  border-color: gold;
+}
+
+/* ROOM TITLE */
+#historyList .card h3 {
+  color: gold;
+  font-size: 18px;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+
+/* TEXT */
+#historyList .card p {
+  font-size: 14px;
+  color: #cfcfcf;
+  margin: 6px 0;
+  line-height: 1.4;
+}
+
+/* LABELS */
+#historyList .card p b {
+  color: #ffffff;
+}
+
+/* STATUS BADGE */
+#historyList .status {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* ACTIVE */
+#historyList .status.active {
+  background: rgba(0, 255, 153, 0.12);
+  color: #00ff99;
+  border: 1px solid #00ff99;
+}
+
+/* CANCELLED */
+#historyList .status.cancelled {
+  background: rgba(255, 77, 77, 0.12);
+  color: #ff4d4d;
+  border: 1px solid #ff4d4d;
+}
+
+/* EMPTY STATE */
+#historyList p {
+  text-align: center;
+}
+
+/* CARD ANIMATION ENTRY */
+#historyList .card {
+  animation: fadeUp 0.4s ease;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   HISTORY SEARCH UI
+========================= */
+
+#searchContainer {
+  text-align: center;
+  margin: 25px 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* INPUT BOX */
+#searchId {
+  padding: 12px 14px;
+  width: 260px;
+  border-radius: 10px;
+  border: 1px solid #333;
+  background: #1e1e1e;
+  color: white;
+  outline: none;
+  transition: 0.3s;
+  font-size: 14px;
+}
+
+#searchId:focus {
+  border-color: gold;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.25);
+}
+
+/* =========================
+   SEARCH BUTTON STYLE
+========================= */
+
+#searchButton {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #ffd700, #ffb300);
+  color: #111;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.25);
+}
+
+/* HOVER EFFECT */
+#searchButton:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 18px rgba(255, 215, 0, 0.35);
+  background: linear-gradient(135deg, #ffe066, #ffcc33);
+}
+
+/* CLICK EFFECT */
+#searchButton:active {
+  transform: scale(0.97);
+  box-shadow: 0 3px 10px rgba(255, 215, 0, 0.2);
+}
+
+/* OPTIONAL: FOCUS ACCESSIBILITY */
+#searchButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.4);
+}
